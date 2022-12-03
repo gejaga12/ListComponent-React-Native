@@ -15,7 +15,6 @@ export const CustomSwitch = ({ isOn, onChange }: Props) => {
         onChange(!isEnabled)
     }
 
-
     return (
 
         <Switch
