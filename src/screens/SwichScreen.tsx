@@ -5,7 +5,6 @@ import { HeaderTitle } from '../components/HeaderTitle';
 
 export const SwichScreen = () => {
 
-
   const [state, setState] = useState({
     isActive: true,
     isHungry: false,
