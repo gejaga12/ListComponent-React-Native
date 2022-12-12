@@ -1,17 +1,17 @@
 import { MenuItem } from "../interfaces/appinterfaces";
 
 export const menuItems: MenuItem[] = [
-    {
-      name: 'Animation 101',
-      icon: 'cube-outline',
-      component: 'Animation101Screen',
-    },
-    {
-      name: 'Animation 102',
-      icon: 'albums-outline',
-      component: 'Animation102Screen',
-    },
-    {
+  {
+    name: 'Animation 101',
+    icon: 'cube-outline',
+    component: 'Animation101Screen',
+  },
+  {
+    name: 'Animation 102',
+    icon: 'albums-outline',
+    component: 'Animation102Screen',
+  },
+  {
     name: 'Switches',
     icon: 'toggle-outline',
     component: 'SwichScreen',
@@ -25,7 +25,13 @@ export const menuItems: MenuItem[] = [
     name: 'Text Input',
     icon: 'document-text-outline',
     component: 'TextImputScreen',
+  },
+  {
+    name: 'Pull To Refresh',
+    icon: 'refresh-outline',
+    component: 'PullToRefreshScreen',
   }
-  
 
-  ];
+
+
+];
