@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { StyleSheet, View, Animated, PanResponder, Text } from 'react-native'
+import { StyleSheet, View, Animated, PanResponder } from 'react-native'
 
 export const Animation102Screen = () => {
 
