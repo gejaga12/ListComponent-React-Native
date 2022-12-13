@@ -16,7 +16,7 @@ export const PullToRefreshScreen = () => {
         setTimeout(() => {
             console.log('terminamos');
             setRefresing(false)
-            setData('Hola crack')
+            setData('Aguante Boca Capo!')
         }, 3000);
     }
 
