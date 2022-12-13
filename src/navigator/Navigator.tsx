@@ -9,6 +9,7 @@ import { TextImputScreen } from '../screens/TextImputScreen';
 import { PullToRefreshScreen } from '../screens/PullToRefreshScreen';
 import { CustomSectionListScreen } from '../screens/CustomSectionListScreen';
 import { ModalScreen } from '../screens/ModalScreen';
+import { InfiniteScrollScreen } from '../screens/InfiniteScrollScreen';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,7 @@ export const Navigator = () => {
         }
 
       }}>
+
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
       <Stack.Screen name="Animation101Screen" component={Animation101Screen} />
       <Stack.Screen name="Animation102Screen" component={Animation102Screen} />
@@ -31,6 +33,8 @@ export const Navigator = () => {
       <Stack.Screen name="PullToRefreshScreen" component={PullToRefreshScreen} />
       <Stack.Screen name="CustomSectionListScreen" component={CustomSectionListScreen} />
       <Stack.Screen name="ModalScreen" component={ModalScreen} />
+      <Stack.Screen name="InfiniteScrollScreen" component={InfiniteScrollScreen} />
+
     </Stack.Navigator>
   );
 };
