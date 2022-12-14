@@ -13,7 +13,7 @@ export const FadeInImage = ({ uri }: Props) => {
   return (
     <Animated.Image
       source={{ uri }}
-      onLoadEnd={fadeIn}
+      onLoadEnd={ fadeIn }
       style={{
         width: '100%',
         height: 400,
