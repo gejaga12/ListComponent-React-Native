@@ -21,7 +21,7 @@ export const ModalScreen = () => {
                 animationType='fade'
                 visible={visible}
                 transparent={true}
-
+                       
             >
                 {/* BACKGROUND NEGRO TRANSPARENTE */}
                 <View style={{
