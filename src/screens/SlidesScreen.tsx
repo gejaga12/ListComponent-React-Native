@@ -2,7 +2,7 @@ import React from 'react'
 import { Dimensions, Image, ImageSourcePropType, SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import Carousel from 'react-native-snap-carousel';
 
-const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
+const { width: screenWidth, height: screenHeight } = Dimensions.get('screen');
 
 interface Slide {
     title: string;
@@ -36,7 +36,7 @@ export const SlidesScreen = () => {
                 flex: 1,
                 backgroundColor: 'white',
                 borderRadius: 5,
-                padding: 20,
+                padding: 30,
                 justifyContent: 'center'
             }}>
                 <Image
@@ -65,7 +65,7 @@ export const SlidesScreen = () => {
                 data={items}
                 renderItem={({ item }: any) => renderItem(item)}
                 sliderWidth={screenWidth}
-                itemWidth={screenHeight}
+                itemWidth={screenWidth}
                 layout='default'
             />
         </SafeAreaView>
@@ -79,5 +79,6 @@ const styles = StyleSheet.create({
     },
     subtitle: {
         fontSize: 16,
+        flexWrap: 'nowrap'
     }
 });
