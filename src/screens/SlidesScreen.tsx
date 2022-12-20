@@ -1,8 +1,10 @@
-import React from 'react'
-import { Dimensions, Image, ImageSourcePropType, SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import Carousel from 'react-native-snap-carousel';
+import React, { useRef, useState } from 'react'
+import { Animated, Dimensions, Image, ImageSourcePropType, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Carousel, Pagination } from 'react-native-snap-carousel';
+import Icon from 'react-native-vector-icons/Ionicons';
+import { useAnimation } from '../hooks/useAnimation';
 
-const { width: screenWidth, height: screenHeight } = Dimensions.get('screen');
+const { width: screenWidth } = Dimensions.get('screen');
 
 interface Slide {
     title: string;
@@ -29,6 +31,10 @@ const items: Slide[] = [
 ]
 
 export const SlidesScreen = () => {
+
+    const [activeIndex, setActiveIndex] = useState(0);
+    const isVisible = useRef(true)
+    const { opacity, fadeIn } = useAnimation();
 
     const renderItem = (item: Slide) => {
         return (
@@ -61,13 +67,66 @@ export const SlidesScreen = () => {
             }}
         >
             <Carousel
-                //   ref={(c) => { this._carousel = c; }}
                 data={items}
                 renderItem={({ item }: any) => renderItem(item)}
                 sliderWidth={screenWidth}
                 itemWidth={screenWidth}
                 layout='default'
+                onSnapToItem={(index) => {
+                    setActiveIndex(index)
+                    if (index === 2) {
+                        isVisible.current = true
+                        fadeIn();
+                    }
+                }}
             />
+
+
+            <View style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                marginHorizontal: 20,
+                alignItems: 'center'
+            }}>
+                <Pagination
+                    dotsLength={items.length}
+                    activeDotIndex={activeIndex}
+                    dotStyle={{
+                        width: 10,
+                        height: 10,
+                        borderRadius: 10,
+                        backgroundColor: '#5856D6'
+                    }}
+                />
+
+
+                <Animated.View style={{
+                    opacity
+                }}>
+                    <TouchableOpacity style={{
+                        flexDirection: 'row',
+                        backgroundColor: '#5856D6',
+                        width: 140,
+                        height: 50,
+                        borderRadius: 10,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}
+                        activeOpacity={0.8}
+                        onPress={() => {
+                            if (isVisible.current) {
+                                console.log('navegar..');
+                            }
+                        }}
+                    >
+                        <Text style={{ fontSize: 25, color: "white" }}>Entrar</Text>
+                        <Icon name='chevron-forward-outline' color="white" size={35} />
+                    </TouchableOpacity>
+                </Animated.View>
+
+
+
+            </View>
         </SafeAreaView>
     )
 }
@@ -75,7 +134,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 30,
         fontWeight: 'bold',
-        color: 'blue'
+        color: '#5856D6'
     },
     subtitle: {
         fontSize: 16,
