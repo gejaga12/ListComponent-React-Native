@@ -1,3 +1,4 @@
+import { StackScreenProps } from '@react-navigation/stack';
 import React, { useRef, useState } from 'react'
 import { Animated, Dimensions, Image, ImageSourcePropType, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { Carousel, Pagination } from 'react-native-snap-carousel';
@@ -30,7 +31,9 @@ const items: Slide[] = [
     },
 ]
 
-export const SlidesScreen = () => {
+interface Props extends StackScreenProps<any, any> { };
+
+export const SlidesScreen = ({ navigation }: Props) => {
 
     const [activeIndex, setActiveIndex] = useState(0);
     const isVisible = useRef(true)
@@ -116,6 +119,7 @@ export const SlidesScreen = () => {
                         onPress={() => {
                             if (isVisible.current) {
                                 console.log('navegar..');
+                                navigation.navigate('HomeScreen')
                             }
                         }}
                     >
