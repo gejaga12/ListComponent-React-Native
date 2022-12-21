@@ -36,8 +36,8 @@ interface Props extends StackScreenProps<any, any> { };
 export const SlidesScreen = ({ navigation }: Props) => {
 
     const [activeIndex, setActiveIndex] = useState(0);
-    const isVisible = useRef(true)
     const { opacity, fadeIn } = useAnimation();
+    const isVisible = useRef(false)
 
     const renderItem = (item: Slide) => {
         return (
@@ -118,7 +118,6 @@ export const SlidesScreen = ({ navigation }: Props) => {
                         activeOpacity={0.8}
                         onPress={() => {
                             if (isVisible.current) {
-                                console.log('navegar..');
                                 navigation.navigate('HomeScreen')
                             }
                         }}
