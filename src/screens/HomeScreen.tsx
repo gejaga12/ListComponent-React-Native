@@ -9,6 +9,8 @@ import { styles } from '../theme/appTheme';
 
 export const HomeScreen = () => {
 
+
+  
   return (
     <View style={{ flex: 1, ...styles.globalMargin }}>
       <FlatList
