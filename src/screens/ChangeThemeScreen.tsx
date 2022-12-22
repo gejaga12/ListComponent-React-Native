@@ -6,32 +6,53 @@ import { styles } from '../theme/appTheme'
 
 export const ChangeThemeScreen = () => {
 
-    const {setDarkTime} = useContext(ThemeContext)
+    const { setDarkTime, setLightTime, theme: {colors} } = useContext(ThemeContext)
 
     return (
         <View style={styles.globalMargin}>
             <HeaderTitle title='Cambiar Tema' />
+            <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                <TouchableOpacity
+                    onPress={setLightTime}
+                    activeOpacity={0.8}
+                    style={{
+                        width: 150,
+                        height: 50,
+                        borderRadius: 20,
+                        backgroundColor: colors.primary,
+                        justifyContent: 'center',
+                    }}>
+                    <Text style={{
+                        color: 'white',
+                        justifyContent: 'center',
+                        textAlign: 'center',
+                        fontSize: 22,
 
-            <TouchableOpacity 
-            onPress={setDarkTime}
-            activeOpacity={0.8}
-            style={{
-                width: 150,
-                height: 50,
-                borderRadius: 20,
-                backgroundColor: '#5658D6',
-                justifyContent: 'center',
-            }}>
-                <Text style={{
-                    color: 'white',
-                    justifyContent: 'center',
-                    textAlign: 'center',
-                    fontSize: 22,
+                    }}>
+                        Light
+                    </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={setDarkTime}
+                    activeOpacity={0.8}
+                    style={{
+                        width: 150,
+                        height: 50,
+                        borderRadius: 20,
+                        backgroundColor: colors.primary,
+                        justifyContent: 'center',
+                    }}>
+                    <Text style={{
+                        color: 'white',
+                        justifyContent: 'center',
+                        textAlign: 'center',
+                        fontSize: 22,
 
-                }}>
-                    Light / Dark
-                </Text>
-            </TouchableOpacity>
+                    }}>
+                        Dark
+                    </Text>
+                </TouchableOpacity>
+            </View>
         </View>
     )
 }
