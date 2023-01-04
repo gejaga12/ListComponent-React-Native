@@ -27,7 +27,6 @@ export const ChangeThemeScreen = () => {
                         justifyContent: 'center',
                         textAlign: 'center',
                         fontSize: 22,
-
                     }}>
                         Light
                     </Text>
@@ -47,7 +46,6 @@ export const ChangeThemeScreen = () => {
                         justifyContent: 'center',
                         textAlign: 'center',
                         fontSize: 22,
-
                     }}>
                         Dark
                     </Text>
